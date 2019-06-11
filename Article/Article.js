@@ -28,6 +28,6 @@ class Article {
 
 let articles = document.querySelector(".article");
 
-articles.forEach( (articleElement) => {
-  return new Article(articleElement);
+articles.forEach( (domElement) => {
+  return new Article(domElement);
 })
