@@ -99,7 +99,7 @@ body {
   top: 10px;
   right: 10px;
 }
-.article .expandButton {
+.article span {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -111,4 +111,8 @@ body {
 }
 .article-open {
   height: 400px;
+}
+
+.hide-btn {
+  display: none;
 }
