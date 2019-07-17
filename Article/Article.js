@@ -115,40 +115,45 @@ const data = [
 
 
 
-function articleCreator(articleContent){
-  
+function articleCreator(data) {
   // Elements created
-  let article = document.createElement('div');
-  let title = document.createElement('h2');
-  let date = document.createElement('p');  
-  let paragraphOne = document.createElement('p');
-  let paragraphTwo = document.createElement('p');
-  let paragraphThree = document.createElement('p');
-  let expandButton = document.createElement('span')
+  const article = document.createElement('div');
+  const title = document.createElement('h2');
+  const date = document.createElement('p');  
+  const paragraphOne = document.createElement('p');
+  const paragraphTwo = document.createElement('p');
+  const paragraphThree = document.createElement('p');
+  const expandButton = document.createElement('span');
 
-  expandButton.addEventListener('click', () =>
-    article.classList.toggle('article-open'));
+  // Structuring
+  article.appendChild(title);
+  article.appendChild(date);
+  article.appendChild(paragraphOne);
+  article.appendChild(paragraphTwo);
+  article.appendChild(paragraphThree);
+  article.appendChild(expandButton);
 
   //Class names
   article.classList.add('article');
   date.classList.add('date');
   expandButton.classList.add('expandButton');
 
-  // Structuring
-  article.appendChild('title');
-  article.appendChild('date');
-  article.appendChild('paragraphOne');
-  article.appendChild('paragraphTwo');
-  article.appendChild('paragraphThree');
-  article.appendChild('expandButton');
-
-
   // Content Mapping
-  article.title.textContent = data.title;
-  article.date.textContent = data.date;
-  article.paragraphOne.textContent = firstParagraph;
-  article.paragraphTwo.textContent = secondParagraph;
-  article.paragraphThree.textContent = thirdParagraph;
+  expandButton.textContent = "expand";
+  title.textContent = data.title;
+  date.textContent = data.date;
+  paragraphOne.textContent = data.firstParagraph;
+  paragraphTwo.textContent = data.secondParagraph;
+  paragraphThree.textContent = data.thirdParagraph;
+  
+  expandButton.addEventListener('click', event => {
+    article.classList.toggle('article-open')
+  });
 
-return article;
+  return article;
 }
+
+const articles = document.querySelector('.articles');
+data.forEach(data => {
+  articles.appendChild(articleCreator(data));
+});
