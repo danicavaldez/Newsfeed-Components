@@ -126,6 +126,9 @@ function articleCreator(articleContent){
   let paragraphThree = document.createElement('p');
   let expandButton = document.createElement('span')
 
+  expandButton.addEventListener('click', () =>
+    article.classList.toggle('article-open'));
+
   //Class names
   article.classList.add('article');
   date.classList.add('date');
